@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
-import Head from 'next/head';
+import React, { useState } from "react";
+import Head from "next/head";
+import Link from "next/link"; // Para usar la navegación en Next.js
 
 interface Question {
   question: string;
@@ -13,34 +14,46 @@ const questions: Question[] = [
   {
     question: "¿Qué órgano controla el cerebro?",
     options: ["El corazón", "Los pulmones", "Todo el cuerpo", "Los ojos"],
-    correctAnswer: 2
+    correctAnswer: 2,
   },
   {
     question: "¿De qué color es el cerebro?",
     options: ["Rojo brillante", "Azul claro", "Gris rosado", "Verde oscuro"],
-    correctAnswer: 2
+    correctAnswer: 2,
   },
   {
     question: "¿Qué protege al cerebro?",
     options: ["Un casco", "El cráneo", "El pelo", "Una gorra"],
-    correctAnswer: 1
+    correctAnswer: 1,
   },
   {
     question: "¿Qué hace el cerebro mientras duermes?",
-    options: ["Se apaga completamente", "Sigue trabajando", "Sale a pasear", "Se vuelve más pequeño"],
-    correctAnswer: 1
+    options: [
+      "Se apaga completamente",
+      "Sigue trabajando",
+      "Sale a pasear",
+      "Se vuelve más pequeño",
+    ],
+    correctAnswer: 1,
   },
   {
     question: "¿Qué necesita el cerebro para funcionar bien?",
-    options: ["Solo dulces", "Mucha televisión", "Buena alimentación y descanso", "Jugar todo el día"],
-    correctAnswer: 2
-  }
+    options: [
+      "Solo dulces",
+      "Mucha televisión",
+      "Buena alimentación y descanso",
+      "Jugar todo el día",
+    ],
+    correctAnswer: 2,
+  },
 ];
 
 const BrainQuiz: React.FC = () => {
-  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(Array(questions.length).fill(null));
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    Array(questions.length).fill(null)
+  );
   const [showResult, setShowResult] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState<number>(0); // Tipado explícito para evitar 'null'
 
   const handleOptionClick = (questionIndex: number, optionIndex: number) => {
     const newSelectedAnswers = [...selectedAnswers];
@@ -50,15 +63,19 @@ const BrainQuiz: React.FC = () => {
 
   const handleSubmit = () => {
     if (selectedAnswers.includes(null)) {
-      alert('Por favor, responde todas las preguntas antes de enviar.');
+      alert("Por favor, responde todas las preguntas antes de enviar.");
       return;
     }
 
-    const newScore = selectedAnswers.reduce((acc, answer, index) => {
-      return answer === questions[index].correctAnswer ? acc + 1 : acc;
-    }, 0);
+    // Nueva lógica que filtra las respuestas null antes de calcular el score
+    const newScore = selectedAnswers.reduce((acc: number, answer, index) => {
+      if (answer !== null && answer === questions[index].correctAnswer) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0); // 'acc' siempre será un número
 
-    setScore(newScore);
+    setScore(newScore); // Aseguramos que 'newScore' es un número
     setShowResult(true);
   };
 
@@ -69,9 +86,9 @@ const BrainQuiz: React.FC = () => {
   };
 
   return (
-    <div className='containQuiz min-h-screen w-full overflow-auto'>
+    <div className="containQuiz min-h-screen w-full overflow-auto">
       <Head>
-        <h2 className=''>Cuestionario sobre el Cerebro para Niños</h2>
+        <title>Cuestionario sobre el Cerebro para Niños</title>
       </Head>
 
       <main className="main min-h-screen w-full overflow-auto">
@@ -84,7 +101,9 @@ const BrainQuiz: React.FC = () => {
               {q.options.map((option, oIndex) => (
                 <button
                   key={oIndex}
-                  className={`option ${selectedAnswers[qIndex] === oIndex ? 'selected' : ''}`}
+                  className={`option ${
+                    selectedAnswers[qIndex] === oIndex ? "selected" : ""
+                  }`}
                   onClick={() => handleOptionClick(qIndex, oIndex)}
                   disabled={showResult}
                 >
@@ -96,16 +115,27 @@ const BrainQuiz: React.FC = () => {
         ))}
 
         {!showResult ? (
-          <button id="submit" onClick={handleSubmit}>Enviar respuestas</button>
+          <button id="submit" onClick={handleSubmit}>
+            Enviar respuestas
+          </button>
         ) : (
           <>
             <div id="result">¡Obtuviste {score} de 5 respuestas correctas!</div>
-            <button id="retry" onClick={handleRetry}>Intentar de nuevo</button>
+            <button id="retry" onClick={handleRetry}>
+              Intentar de nuevo
+            </button>
           </>
         )}
-        <div className='w-fuyll h-min flex justify-center items-center'>
 
-        <button id="btn-before" className='btn btn-primary btn-block btn-large mt-10 w-full'><a href="/pages/dashboard" className='w-full'>Regresar</a></button>
+        <div className="w-full h-min flex justify-center items-center mt-10">
+          <Link href="/dashboard">
+            <button
+              id="btn-before"
+              className="btn btn-primary btn-block btn-large w-full"
+            >
+              Regresar
+            </button>
+          </Link>
         </div>
       </main>
     </div>
