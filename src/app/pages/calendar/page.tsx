@@ -1,12 +1,10 @@
 "use client";
 
 const BrainQuiz: React.FC = () => {
-  const fullName = localStorage.getItem("fullName");
-
   return (
     <div className="h-screen">
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <h1 className="p-10 text-4xl text-white">Bienvenido(a), {fullName}</h1>
+        <h1 className="p-10 text-4xl text-white">Bienvenido</h1>
         <div className="w-full h-full">
           <img
             src="/assets/img/calendar.png"
