@@ -215,27 +215,60 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="w-8/12 h-screen p-10 flex flex-col justify-center items-center">
-            {selectedCourse ? (
-              <div>
-                <h2 className="text-2xl font-bold">
-                  {courseInfo[selectedCourse].title}
-                </h2>
-                <ul className="list-disc">
-                  <li>{courseInfo[selectedCourse].connectVirtual}</li>
-                  <li>{courseInfo[selectedCourse].finalEvaluations}</li>
-                  <li>{courseInfo[selectedCourse].onlineExams}</li>
-                  <li>{courseInfo[selectedCourse].trimesterSchedule}</li>
-                  <li>{courseInfo[selectedCourse].reminder}</li>
-                  <li>{courseInfo[selectedCourse].emails}</li>
-                  <li>{courseInfo[selectedCourse].tasks}</li>
-                  <li>{courseInfo[selectedCourse].lessons}</li>
-                </ul>
+          <div className=" w-8/12 h-12/12 container-materials border-solid border-2 border-[#ffffff67]-600">
+            {selectedCourse && (
+              <div className="flex flex-col gap-4 p-4">
+                {[...Array(2)].map((_, index) => (
+                  <div
+                    key={index}
+                    className="bg-white shadow-md rounded-lg p-4 w-full"
+                  >
+                    <h3 className="text-lg font-semibold mb-2">
+                      {courseInfo[selectedCourse].title}
+                    </h3>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      <a href="/pages/conect">
+                        {courseInfo[selectedCourse].connectVirtual}
+                      </a>
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      <a href="/pages/quiz">
+                        {courseInfo[selectedCourse].finalEvaluations}
+                      </a>
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      <a href="/pages/quiz">
+                        {courseInfo[selectedCourse].onlineExams}
+                      </a>
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      <a href="/pages/calendar">
+                        {courseInfo[selectedCourse].trimesterSchedule}
+                      </a>
+                    </div>
+                    <div
+                      className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold"
+                      onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+                    >
+                      {courseInfo[selectedCourse].reminder}
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      {courseInfo[selectedCourse].emails}
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      {courseInfo[selectedCourse].tasks}
+                      <input type="file" className="w-fit bg-gray-50" />
+                    </div>
+                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
+                      <a href="https://play.kahoot.it/v2/lobby?quizId=fe7aad4a-90b6-40af-b811-0e1c6e368fcb"></a>
+                      {courseInfo[selectedCourse].lessons}
+                    </div>
+                    <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Ver detalles
+                    </button>
+                  </div>
+                ))}
               </div>
-            ) : (
-              <p className="text-lg">
-                Selecciona un curso para ver la información.
-              </p>
             )}
           </div>
         </div>

@@ -17,7 +17,7 @@ const BrainQuiz: React.FC = () => {
         </div>
         <div className="w-full h-min flex justify-center items-center p-10">
           <Link
-            href="/dashboard"
+            href="/pages/dashboard"
             className="btn btn-primary btn-block btn-large mt-10 w-full"
           >
             Regresar

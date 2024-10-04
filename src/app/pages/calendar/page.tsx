@@ -2,14 +2,14 @@
 
 const BrainQuiz: React.FC = () => {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-[#353535]">
       <div className="w-full h-full flex flex-col justify-center items-center">
         <h1 className="p-10 text-4xl text-white">Bienvenido</h1>
         <div className="w-full h-full">
           <img
             src="/assets/img/calendar.png"
             alt="calendar"
-            className="h-full w-full"
+            className="h-full w-full p-10"
           />
         </div>
         <div className="w-full h-min flex justify-center items-center p-20">

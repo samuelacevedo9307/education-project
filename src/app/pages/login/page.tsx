@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -7,14 +7,14 @@ export default function Login() {
       <div>
         <input type="text" placeholder="Cédula o correo electrónico" />
         <input type="password" placeholder="Contraseña" />
-        <Link href="/dashboard">
+        <Link href="/pages/dashboard">
           <button>Iniciar</button>
         </Link>
-        <p style={{ textDecoration: 'underline' }}>
+        <p style={{ textDecoration: "underline" }}>
           ¿Has olvidado tu contraseña?
         </p>
         <span>
-          <Link href="/register">Ir a registro</Link>
+          <Link href="/pages/register">Ir a registro</Link>
         </span>
       </div>
     </div>

@@ -128,7 +128,7 @@ const BrainQuiz: React.FC = () => {
         )}
 
         <div className="w-full h-min flex justify-center items-center mt-10">
-          <Link href="/dashboard">
+          <Link href="/pages/dashboard">
             <button
               id="btn-before"
               className="btn btn-primary btn-block btn-large w-full"
