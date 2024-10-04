@@ -116,7 +116,7 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full justify-center items-center overflow-y-auto">
+    <div className="flex flex-col w-full h-min justify-center items-center p-10">
       <div className="dashboard login w-full h-max">
         <div className="w-full h-full flex flex-row justify-center items-center">
           <h1 className="p-10 text-4xl">Bienvenido(a), {fullName}</h1>
@@ -154,9 +154,8 @@ const Dashboard: React.FC = () => {
             </div>
           )}
         </div>
-
         <div className="flex flex-row w-full h-screen mb-40">
-          <div className="flex flex-col w-4/12 h-screen border-solid border-2 border-[#ffffff67]-600">
+          <div className="flex flex-col w-4/12 h-screen border-solid border-2 border-[#ffffff67]-600 container-left-dash">
             <h3 className="w-full text-center p-10 font-bold text-white border-b-2 border-white-600">
               Elige una opción
             </h3>
@@ -202,23 +201,21 @@ const Dashboard: React.FC = () => {
                 alt="icon"
                 className="icon w-10 h-10"
               />
-              <Link href="/pages/Configuracion">
-                <button className="button w-4/6 text-white p-5">
-                  Configuración
-                </button>
-              </Link>
+              <button className="button w-4/6 text-white p-5">
+                <Link href="/pages/Configuracion">Configuración</Link>
+              </button>
             </div>
 
-            <div className="w-full flex justify-center items-center p-5 ">
+            <div className="w-full flex justify-center items-center p-3">
               <button
                 onClick={handleLogout}
-                className="btn btn-primary btn-block btn-large"
+                className="btn btn-primary btn-block btn-large "
               >
                 Cerrar sesión
               </button>
             </div>
           </div>
-          <div className=" w-8/12 h-12/12 container-materials border-solid border-2 border-[#ffffff67]-600">
+          <div className=" w-8/12 h-full container-materials border-solid border-2 border-[#ffffff67]-600">
             {selectedCourse && (
               <div className="flex flex-col gap-4 p-4">
                 {[...Array(2)].map((_, index) => (
@@ -264,8 +261,6 @@ const Dashboard: React.FC = () => {
                       <a href="/pages/videoIA">
                         {courseInfo[selectedCourse].tasks}
                       </a>
-
-                      
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
                       <a href="/pages/quiz">

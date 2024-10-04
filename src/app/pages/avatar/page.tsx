@@ -2,7 +2,7 @@
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="flex flex-col w-full h-screen justify-center items-center">
+    <div className="flex flex-col w-full h-max justify-center items-center">
       <h1 className="p-5 text-4xl text-white">Bienvenido(a)</h1>
       <button className="btn btn-primary btn-block btn-large">
         <a href="/pages/dashboard" className="w-full">
