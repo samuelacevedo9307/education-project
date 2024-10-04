@@ -3,12 +3,10 @@
 import Link from "next/link";
 
 const BrainQuiz: React.FC = () => {
-  const fullName = localStorage.getItem("fullName") || "Usuario";
-
   return (
     <div className="h-screen w-full">
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <h1 className="p-10 text-4xl text-white">Hola, {fullName}</h1>
+        <h1 className="p-10 text-4xl text-white">Hola </h1>
         <div className="w-full h-min flex justify-center items-center p-10">
           <a
             href="https://meet.google.com/pgy-bnbq-seg"
