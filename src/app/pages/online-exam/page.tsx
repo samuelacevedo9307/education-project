@@ -64,10 +64,16 @@ const ExamenCard: React.FC<{ examen: Examen }> = ({ examen }) => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col w-full h-screen justify-center items-center">
-        <h1 className="p-5 text-4xl text-white">Bienvenido(a)</h1>
-      </div>
+    <div
+      style={{
+        backgroundColor: "#fff",
+        borderRadius: "8px",
+        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+        marginBottom: "20px",
+        overflow: "hidden",
+        transition: "transform 0.3s ease",
+      }}
+    >
       <div
         style={{
           backgroundColor: "#3498db",
@@ -136,13 +142,28 @@ export default function ExamenesEnLinea() {
       }}
     >
       <h1
-        style={{ color: "#2c3e50", textAlign: "center", marginBottom: "30px" }}
+        style={{
+          color: "#2c3e50",
+          textAlign: "center",
+          marginBottom: "30px",
+          fontSize: "30px",
+        }}
       >
         Exámenes en Línea
       </h1>
       {examenes.map((examen) => (
         <ExamenCard key={examen.id} examen={examen} />
       ))}
+      <div className="w-full h-min flex justify-center items-center p-20">
+        <button
+          id="btn-before"
+          className="btn btn-primary btn-block btn-large mt-10  "
+        >
+          <a href="/pages/dashboard" className="w-full">
+            Regresar
+          </a>
+        </button>
+      </div>
     </div>
   );
 }

@@ -44,10 +44,10 @@ const evaluaciones = [
 const AgendaEvaluaciones: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center p-10">
-      <div className="flex flex-col w-full h-screen justify-center items-center">
+      <div className="flex flex-col w-full h-fit justify-center items-center">
         <h1 className="p-5 text-4xl text-white">Bienvenido(a)</h1>
       </div>
-      <h1 style={{ color: "#333", textAlign: "center" }}>
+      <h1 style={{ color: "#fff", textAlign: "center" }}>
         Agenda de Evaluaciones Finales
       </h1>
       <table
@@ -109,10 +109,7 @@ const AgendaEvaluaciones: React.FC = () => {
         </thead>
         <tbody>
           {evaluaciones.map((evaluacion, index) => (
-            <tr
-              key={index}
-              style={{ ":hover": { backgroundColor: "#f5f5f5" } }}
-            >
+            <tr key={index}>
               <td
                 style={{
                   padding: "12px",
@@ -153,6 +150,16 @@ const AgendaEvaluaciones: React.FC = () => {
           ))}
         </tbody>
       </table>
+      <div className="w-full h-min flex justify-center items-center p-20">
+        <button
+          id="btn-before"
+          className="btn btn-primary btn-block btn-large mt-10  "
+        >
+          <a href="/pages/dashboard" className="w-full">
+            Regresar
+          </a>
+        </button>
+      </div>
     </div>
   );
 };

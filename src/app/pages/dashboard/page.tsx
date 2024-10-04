@@ -232,12 +232,12 @@ const Dashboard: React.FC = () => {
                       </a>
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/quiz">
+                      <a href="/pages/grades    ">
                         {courseInfo[selectedCourse].finalEvaluations}
                       </a>
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/quiz">
+                      <a href="/pages/online-exam">
                         {courseInfo[selectedCourse].onlineExams}
                       </a>
                     </div>
