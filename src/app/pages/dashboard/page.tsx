@@ -256,15 +256,21 @@ const Dashboard: React.FC = () => {
                       {courseInfo[selectedCourse].reminder}
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      {courseInfo[selectedCourse].emails}
+                      <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=ARpgrqdYTaXDDD369MyBlErQEulZZE4BVjUQwE3aVSBtSKPyKh49GmHuU5XNAMDgzuk1eny3pNe54A&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1357913452%3A1728062105928816&ddm=0">
+                        {courseInfo[selectedCourse].emails}
+                      </a>
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      {courseInfo[selectedCourse].tasks}
-                      <input type="file" className="w-fit bg-gray" />
+                      <a href="/pages/videoIA">
+                        {courseInfo[selectedCourse].tasks}
+                      </a>
+
+                      
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="https://play.kahoot.it/v2/lobby?quizId=fe7aad4a-90b6-40af-b811-0e1c6e368fcb"></a>
-                      {courseInfo[selectedCourse].lessons}
+                      <a href="/pages/quiz">
+                        {courseInfo[selectedCourse].lessons}
+                      </a>
                     </div>
                     <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                       Ver detalles

@@ -161,6 +161,16 @@ const ConfiguracionPlataforma: React.FC = () => {
             ))}
           </select>
         </div>
+        <div className="w-full h-min flex justify-center items-center p-20">
+          <button
+            id="btn-before"
+            className="btn btn-primary btn-block btn-large mt-10  "
+          >
+            <a href="/pages/dashboard" className="w-full">
+              Regresar
+            </a>
+          </button>
+        </div>
       </div>
     </div>
   );

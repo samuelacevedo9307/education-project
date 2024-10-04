@@ -54,7 +54,7 @@ const BrainQuiz: React.FC = () => {
   );
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState<number>(0); // Tipado explícito para evitar 'null'
-
+  const [loading, setLoading] = useState(false); // Estado para controlar la pantalla de carga
   const handleOptionClick = (questionIndex: number, optionIndex: number) => {
     const newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[questionIndex] = optionIndex;
@@ -74,6 +74,11 @@ const BrainQuiz: React.FC = () => {
       }
       return acc;
     }, 0); // 'acc' siempre será un número
+    setLoading(true); // Activar pantalla de carga
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simular un retraso de 2 segundos
 
     setScore(newScore); // Aseguramos que 'newScore' es un número
     setShowResult(true);
@@ -85,6 +90,15 @@ const BrainQuiz: React.FC = () => {
     setScore(0);
   };
 
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <h1 className="p-10 text-4xl">
+          Calificando con Inteligencia Artificial
+        </h1>
+      </div>
+    );
+  }
   return (
     <div className="containQuiz min-h-screen w-full overflow-auto">
       <Head>
