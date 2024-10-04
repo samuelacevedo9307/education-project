@@ -257,7 +257,7 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
                       {courseInfo[selectedCourse].tasks}
-                      <input type="file" className="w-fit bg-gray-50" />
+                      <input type="file" className="w-fit bg-gray" />
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
                       <a href="https://play.kahoot.it/v2/lobby?quizId=fe7aad4a-90b6-40af-b811-0e1c6e368fcb"></a>
