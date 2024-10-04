@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 
 interface CourseInfo {
   title: string;
@@ -201,9 +203,12 @@ const Dashboard: React.FC = () => {
                 alt="icon"
                 className="icon w-10 h-10"
               />
-              <button className="button w-4/6 text-white p-5">
+              <Link href="/pages/Configuracion">
+                <button className="button w-4/6 text-white p-5">
                 Configuración
-              </button>
+                </button>
+              </Link>
+
             </div>
 
             <div className="w-full flex justify-center items-center p-5 ">
