@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-
 interface CourseInfo {
   title: string;
   connectVirtual: string;
@@ -194,7 +193,7 @@ const Dashboard: React.FC = () => {
                 className="icon w-10 h-10"
               />
               <button className="button w-4/6 text-white p-5">
-                <a href="/pages/quiz">Evaluaciones</a>
+                <a href="/pages/grades">Evaluaciones</a>
               </button>
             </div>
             <div className="icons-dashboard w-full flex flex-row justify-center items-center">
@@ -205,10 +204,9 @@ const Dashboard: React.FC = () => {
               />
               <Link href="/pages/Configuracion">
                 <button className="button w-4/6 text-white p-5">
-                Configuración
+                  Configuración
                 </button>
               </Link>
-
             </div>
 
             <div className="w-full flex justify-center items-center p-5 ">
