@@ -148,7 +148,7 @@ html {
 }
 
 .btn-block {
-  width: 80%;
+  width: 50%;
   display: block;
 }
 
@@ -247,6 +247,9 @@ label {
   100% { opacity: 0.2; }
 }
 /* icons dashboard */
+.dashboard {
+  width: 80%;
+}
 .icons-dashboard {
   display: flex;
   justify-content: center;
