@@ -19,6 +19,7 @@ const Dashboard: React.FC = () => {
   const [showCourses, setShowCourses] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [fullName, setFullName] = useState<string>("Usuario"); // Valor por defecto
 
   const courseInfo: Record<string, CourseInfo> = {
     Matemáticas: {
@@ -100,14 +101,14 @@ const Dashboard: React.FC = () => {
   };
 
   useEffect(() => {
-    const fullName = localStorage.getItem("fullName");
-    if (!fullName) {
+    const storedFullName = localStorage.getItem("fullName");
+    if (storedFullName) {
+      setFullName(storedFullName);
+    } else {
       // Redirigir a la página de registro si no hay un nombre completo
       router.push("/register");
     }
   }, [router]);
-
-  const fullName = localStorage.getItem("fullName") || "Usuario"; // Manejo de valor por defecto
 
   const handleCourseSelect = (course: string) => {
     setSelectedCourse(course);
@@ -140,10 +141,10 @@ const Dashboard: React.FC = () => {
               </div>
               <ul className="mt-2">
                 <li className="p-2 hover:bg-gray-100 cursor-pointer">
-                  Examen pendiente Matematicas
+                  Examen pendiente Matemáticas
                 </li>
                 <li className="p-2 hover:bg-gray-100 cursor-pointer">
-                  Recordar tarea ingles
+                  Recordar tarea inglés
                 </li>
                 <li className="p-2 hover:bg-gray-100 cursor-pointer">
                   Revisar calendario
@@ -214,29 +215,27 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="w-8/12 h-12/12 container-materials border-solid border-2 border-[#ffffff67]-600">
-            {selectedCourse && (
-              <div className="flex flex-col justify-center items-center">
-                <h1 className="text-3xl font-bold">
+          <div className="w-8/12 h-screen p-10 flex flex-col justify-center items-center">
+            {selectedCourse ? (
+              <div>
+                <h2 className="text-2xl font-bold">
                   {courseInfo[selectedCourse].title}
-                </h1>
-                <p className="text-xl">
-                  {courseInfo[selectedCourse].connectVirtual}
-                </p>
-                <p className="text-xl">
-                  {courseInfo[selectedCourse].finalEvaluations}
-                </p>
-                <p className="text-xl">
-                  {courseInfo[selectedCourse].onlineExams}
-                </p>
-                <p className="text-xl">
-                  {courseInfo[selectedCourse].trimesterSchedule}
-                </p>
-                <p className="text-xl">{courseInfo[selectedCourse].reminder}</p>
-                <p className="text-xl">{courseInfo[selectedCourse].emails}</p>
-                <p className="text-xl">{courseInfo[selectedCourse].tasks}</p>
-                <p className="text-xl">{courseInfo[selectedCourse].lessons}</p>
+                </h2>
+                <ul className="list-disc">
+                  <li>{courseInfo[selectedCourse].connectVirtual}</li>
+                  <li>{courseInfo[selectedCourse].finalEvaluations}</li>
+                  <li>{courseInfo[selectedCourse].onlineExams}</li>
+                  <li>{courseInfo[selectedCourse].trimesterSchedule}</li>
+                  <li>{courseInfo[selectedCourse].reminder}</li>
+                  <li>{courseInfo[selectedCourse].emails}</li>
+                  <li>{courseInfo[selectedCourse].tasks}</li>
+                  <li>{courseInfo[selectedCourse].lessons}</li>
+                </ul>
               </div>
+            ) : (
+              <p className="text-lg">
+                Selecciona un curso para ver la información.
+              </p>
             )}
           </div>
         </div>
