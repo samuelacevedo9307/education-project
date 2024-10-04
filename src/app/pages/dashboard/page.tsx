@@ -102,11 +102,12 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const fullName = localStorage.getItem("fullName");
     if (!fullName) {
-      router.push("/pages/register");
+      // Redirigir a la página de registro si no hay un nombre completo
+      router.push("/register");
     }
   }, [router]);
 
-  const fullName = localStorage.getItem("fullName");
+  const fullName = localStorage.getItem("fullName") || "Usuario"; // Manejo de valor por defecto
 
   const handleCourseSelect = (course: string) => {
     setSelectedCourse(course);
@@ -213,56 +214,28 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className=" w-8/12 h-12/12 container-materials border-solid border-2 border-[#ffffff67]-600">
+          <div className="w-8/12 h-12/12 container-materials border-solid border-2 border-[#ffffff67]-600">
             {selectedCourse && (
-              <div className="flex flex-col gap-4 p-4">
-                {[...Array(2)].map((_, index) => (
-                  <div
-                    key={index}
-                    className="bg-white shadow-md rounded-lg p-4 w-full"
-                  >
-                    <h3 className="text-lg font-semibold mb-2">
-                      {courseInfo[selectedCourse].title}
-                    </h3>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/conect">
-                        {courseInfo[selectedCourse].connectVirtual}
-                      </a>
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/page/quiz">
-                        {courseInfo[selectedCourse].finalEvaluations}
-                      </a>
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/quiz">
-                        {courseInfo[selectedCourse].onlineExams}
-                      </a>
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/calendar">
-                        {courseInfo[selectedCourse].trimesterSchedule}
-                      </a>
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      {courseInfo[selectedCourse].reminder}
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      {courseInfo[selectedCourse].emails}
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      {courseInfo[selectedCourse].tasks}
-                    </div>
-                    <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="https://play.kahoot.it/v2/lobby?quizId=fe7aad4a-90b6-40af-b811-0e1c6e368fcb">
-                        {courseInfo[selectedCourse].lessons}
-                      </a>
-                    </div>
-                    <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Ver detalles
-                    </button>
-                  </div>
-                ))}
+              <div className="flex flex-col justify-center items-center">
+                <h1 className="text-3xl font-bold">
+                  {courseInfo[selectedCourse].title}
+                </h1>
+                <p className="text-xl">
+                  {courseInfo[selectedCourse].connectVirtual}
+                </p>
+                <p className="text-xl">
+                  {courseInfo[selectedCourse].finalEvaluations}
+                </p>
+                <p className="text-xl">
+                  {courseInfo[selectedCourse].onlineExams}
+                </p>
+                <p className="text-xl">
+                  {courseInfo[selectedCourse].trimesterSchedule}
+                </p>
+                <p className="text-xl">{courseInfo[selectedCourse].reminder}</p>
+                <p className="text-xl">{courseInfo[selectedCourse].emails}</p>
+                <p className="text-xl">{courseInfo[selectedCourse].tasks}</p>
+                <p className="text-xl">{courseInfo[selectedCourse].lessons}</p>
               </div>
             )}
           </div>
