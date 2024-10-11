@@ -58,9 +58,7 @@ const Slider: React.FC = () => {
         <img
           src={images[currentIndex]}
           alt="icon"
-          className={`w-h-96 h-96 cursor-pointer ${
-            selected ? "w-72 h-64 " : ""
-          }`} // Aplica el tamaño más pequeño si está seleccionada
+          className={`w-96 h-96 cursor-pointer ${selected ? "w-96 h-96" : ""}`} // Aplica el tamaño más pequeño si está seleccionada
           onClick={handleSelect}
         />
 
