@@ -154,6 +154,7 @@ const Dashboard: React.FC = () => {
             </div>
           )}
         </div>
+        {/* ------------------MENU DASHBOARD -----------------*/}
         <div className="flex flex-row w-full h-screen mb-40">
           <div className="flex flex-col w-4/12 h-screen border-solid border-2 border-[#ffffff67]-600 container-left-dash">
             <h3 className="w-full text-center p-10 font-bold text-white border-b-2 border-white-600">
@@ -205,7 +206,16 @@ const Dashboard: React.FC = () => {
                 <Link href="/pages/Configuracion">Configuración</Link>
               </button>
             </div>
-
+            <div className="icons-dashboard w-full flex flex-row justify-center items-center">
+              <img
+                src="/assets/icons/9.png"
+                alt="icon"
+                className="icon w-10 h-10"
+              />
+              <button className="button w-4/6 text-white p-5">
+                <a href="/pages/indi">Comunidades Indígenas</a>
+              </button>
+            </div>
             <div className="w-full flex justify-center items-center p-3">
               <button
                 onClick={handleLogout}
@@ -263,7 +273,7 @@ const Dashboard: React.FC = () => {
                       </a>
                     </div>
                     <div className="p-2 cursor-pointer hover:bg-green-500 hover:text-white hover:font-bold">
-                      <a href="/pages/quiz">
+                      <a href="/pages/brain">
                         {courseInfo[selectedCourse].lessons}
                       </a>
                     </div>
@@ -277,6 +287,14 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
+      <video
+        src="/assets/video/lenguage.mp4" // Reemplaza con la ruta de tu video
+        autoPlay
+        loop
+        muted
+        className="fixed bottom-0 right-10 w-52 h-52 object-cover"
+        playsInline
+      />
     </div>
   );
 };
