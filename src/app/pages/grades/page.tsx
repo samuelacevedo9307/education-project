@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-
+import Link from "next/link";
 const evaluaciones = [
   {
     materia: "Matemáticas",
@@ -151,14 +151,11 @@ const AgendaEvaluaciones: React.FC = () => {
         </tbody>
       </table>
       <div className="w-full h-min flex justify-center items-center p-20">
-        <button
-          id="btn-before"
-          className="btn btn-primary btn-block btn-large mt-10  "
-        >
-          <a href="/pages/dashboard" className="w-full">
+      <Link href="/pages/dashboard" className="w-full flex justify-center items-center">
+          <button className="btn btn-primary btn-block btn-large">
             Regresar
-          </a>
-        </button>
+          </button>
+        </Link>
       </div>
     </div>
   );

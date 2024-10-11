@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 interface Examen {
   id: number;
   materia: string;
@@ -155,14 +155,11 @@ export default function ExamenesEnLinea() {
         <ExamenCard key={examen.id} examen={examen} />
       ))}
       <div className="w-full h-min flex justify-center items-center p-20">
-        <button
-          id="btn-before"
-          className="btn btn-primary btn-block btn-large mt-10  "
-        >
-          <a href="/pages/dashboard" className="w-full">
+      <Link href="/pages/dashboard" className="w-full flex justify-center items-center">
+          <button className="btn btn-primary btn-block btn-large">
             Regresar
-          </a>
-        </button>
+          </button>
+        </Link>
       </div>
     </div>
   );

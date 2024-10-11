@@ -104,11 +104,11 @@ const Brain: React.FC = () => {
     <div className="containQuiz min-h-screen w-full overflow-auto bg-[#ADBBD6]">
       <div className="flex flex-col w-full h-max justify-center items-center">
         <h1 className="p-5 text-4xl text-white">Bienvenido(a)</h1>
-        <button className="btn btn-primary btn-block btn-large">
-          <a href="/pages/dashboard" className="w-full">
+        <Link href="/pages/dashboard" className="w-full flex justify-center items-center">
+          <button className="btn btn-primary btn-block btn-large">
             Regresar
-          </a>
-        </button>
+          </button>
+        </Link>
         <div className="h-screen w-10/12 container-materials p-10">
           <iframe
             src="https://dbrain-742f1.firebaseapp.com/"
@@ -130,9 +130,8 @@ const Brain: React.FC = () => {
               {q.options.map((option, oIndex) => (
                 <button
                   key={oIndex}
-                  className={`option ${
-                    selectedAnswers[qIndex] === oIndex ? "selected" : ""
-                  }`}
+                  className={`option ${selectedAnswers[qIndex] === oIndex ? "selected" : ""
+                    }`}
                   onClick={() => handleOptionClick(qIndex, oIndex)}
                   disabled={showResult}
                 >

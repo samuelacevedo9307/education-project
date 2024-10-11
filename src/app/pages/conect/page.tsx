@@ -15,14 +15,11 @@ const BrainQuiz: React.FC = () => {
             Ir a la clase
           </a>
         </div>
-        <div className="w-full h-min flex justify-center items-center p-10">
-          <Link
-            href="/pages/dashboard"
-            className="btn btn-primary btn-block btn-large mt-10 w-full"
-          >
+        <Link href="/pages/dashboard" className="w-full flex justify-center items-center p-10">
+          <button className="btn btn-primary btn-block btn-large">
             Regresar
-          </Link>
-        </div>
+          </button>
+        </Link>
       </div>
     </div>
   );

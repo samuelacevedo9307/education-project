@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import Link from "next/link";
 const Slider: React.FC = () => {
   // Array de las rutas de las imágenes
   const images = [
@@ -36,11 +36,11 @@ const Slider: React.FC = () => {
   return (
     <div className="flex flex-col w-full h-5/5 justify-center items-center">
       <h1 className="p-5 text-4xl text-white">Escoge tu avatar</h1>
-      <button className="btn btn-primary btn-block btn-large">
-        <a href="/pages/dashboard" className="w-full">
-          Regresar
-        </a>
-      </button>
+      <Link href="/pages/dashboard" className="w-full flex justify-center items-center">
+          <button className="btn btn-primary btn-block btn-large">
+            Regresar
+          </button>
+        </Link>
 
       <div className="h-max w-full container-materials p-10 flex items-center justify-center">
         {/* Botón para la imagen anterior*/}
